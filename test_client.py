@@ -1,10 +1,10 @@
 import socket
 import os, os.path
- 
+import sys
 print "Connecting..."
-if os.path.exists( "/tmp/python_unix_sockets_example" ):
+if os.path.exists(sys.argv[1]):
   client = socket.socket( socket.AF_UNIX, socket.SOCK_DGRAM )
-  client.connect( "/tmp/python_unix_sockets_example" )
+  client.connect(sys.argv[1])
   print "Ready."
   print "Ctrl-C to quit."
   print "Sending 'DONE' shuts down the server and quits."
